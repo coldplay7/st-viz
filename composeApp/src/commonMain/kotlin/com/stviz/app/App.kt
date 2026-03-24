@@ -11,10 +11,12 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import cafe.adriel.voyager.navigator.Navigator
 import com.stviz.app.auth.LoginScreen
 
+import com.stviz.app.ui.theme.AppTheme
+
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
+    AppTheme {
         Navigator(LoginScreen())
     }
 }

@@ -46,7 +46,7 @@ class PortfolioListScreen : Screen {
                             LazyColumn(modifier = Modifier.fillMaxSize()) {
                                 items(current.portfolios) { portfolio ->
                                     PortfolioItem(portfolio) {
-                                        // TODO: Navigate to Portfolio Details
+                                        navigator.push(PortfolioDetailsScreen(portfolio.id, portfolio.name))
                                     }
                                 }
                             }
