@@ -1,0 +1,13 @@
+📱 How it runs on each platform
+1. Android
+The Build: The shared code is compiled into a standard Android library.
+The App: A thin Android app shell (androidApp) starts the main Compose UI.
+Look & Feel: It feels like a native Jetpack Compose app, with full access to Android features (Material 3, system back button, etc.).
+2. iOS
+The Build: The shared Kotlin code is compiled into a Native Framework (Objective-C/Swift compatible).
+The App: A standard Xcode project (iosApp) imports this framework.
+Look & Feel: We use Compose UI for iOS. It renders directly via Skia (the same engine Chrome uses), ensuring fluid 120fps animations and matching your design pixel-for-pixel with the Android version.
+3. Web (Wasm)
+The Build: The code is compiled into WebAssembly (Wasm).
+The App: It generates an index.html and a .wasm binary that runs in modern browsers (Chrome, Safari, Firefox).
+Look & Feel: It works like a Single Page Application (SPA). It’s fast and responsive, allowing you to use your Stock Visualizer in any browser without installing an app.
