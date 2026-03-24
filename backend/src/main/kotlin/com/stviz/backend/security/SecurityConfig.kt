@@ -19,7 +19,7 @@ class SecurityConfig {
     }
 
     @Bean
-    fun filterChain(http: HttpSecurity): SecurityFilterChain {
+    fun filterChain(http: HttpSecurity, jwtAuthFilter: JwtAuthFilter): SecurityFilterChain {
         http
             .csrf { it.disable() }
             .cors { it.disable() }
@@ -29,7 +29,7 @@ class SecurityConfig {
                 auth.anyRequest().authenticated()
             }
         
-        // Note: JWT filter will be added in ISSUE-007
+        http.addFilterBefore(jwtAuthFilter, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter::class.java)
         
         return http.build()
     }

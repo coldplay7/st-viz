@@ -27,4 +27,18 @@ class JwtService(
             .signWith(key)
             .compact()
     }
+
+    fun getUserIdFromToken(token: String): Long {
+        val claims = Jwts.parser().verifyWith(key).build().parseSignedClaims(token)
+        return claims.payload.subject.toLong()
+    }
+
+    fun validateToken(authToken: String): Boolean {
+        return try {
+            Jwts.parser().verifyWith(key).build().parseSignedClaims(authToken)
+            true
+        } catch (ex: Exception) {
+            false
+        }
+    }
 }
