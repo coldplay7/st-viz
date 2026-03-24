@@ -22,7 +22,7 @@ class SecurityConfig {
     fun filterChain(http: HttpSecurity, jwtAuthFilter: JwtAuthFilter): SecurityFilterChain {
         http
             .csrf { it.disable() }
-            .cors { it.disable() }
+            .cors { } // Enable CORS
             .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
             .authorizeHttpRequests { auth ->
                 auth.requestMatchers("/api/auth/**").permitAll()
