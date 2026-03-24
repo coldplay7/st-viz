@@ -54,3 +54,18 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### st-viz Specific ###
+# SQLite Databases
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+
+# Gradle Cache
+.gradle/
+local.properties
+
+# Temp Scripts
+create_issues.sh
